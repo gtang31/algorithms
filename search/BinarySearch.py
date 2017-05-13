@@ -1,10 +1,12 @@
 """
-Assumes input array is already sorted. Otherwise 
+Assumes input array is already sorted. Otherwise
 search will not be correct. Recursively halves array
 until it is of size 1. Compares against our target T.
 Run time for this algorithm should be O(logN)
 """
 __author__ = "Gary Tang"
+
+
 def binary_search(array, T):
     """
     @param array: list[int]
