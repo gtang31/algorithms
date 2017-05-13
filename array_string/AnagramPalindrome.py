@@ -2,7 +2,6 @@
 Given a string, check to see whether it is an anagram of a palindrome. The string
 does not need to be a valid english word.
 """
-import pdb
 from collections import defaultdict
 __author__ = "Gary Tang"
 
@@ -62,10 +61,10 @@ class isAnagramPalindromeSolution(object):
             elif 1 << mask | bit_vector > bit_vector:
                 # a bit was flipped 0 -> 1. An odd occurence
                 bit_vector |= 1 << mask
-        ones_count = bin(bit_vector).count('1')
-        if (self._s_len % 2 == 0) and (ones_count != 0):
+        odd_occurence = bin(bit_vector).count('1')
+        if (self._s_len % 2 == 0) and (odd_occurence):
             return False
-        elif (self._s_len % 2 == 1) and (ones_count != 1):
+        elif (self._s_len % 2 == 1) and not (odd_occurence):
             return False
         return True
 
