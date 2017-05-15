@@ -23,22 +23,32 @@ class Node(object):
 
 
 class LinkedList(object):
-
+    """
+    Linear data structure consisting of Node object(s)
+    """
     def __init__(self):
+        # TODO: include a tail pointer maybe?
         self.head = None
 
     def append(self, value):
         """
         Appends a new node the end of the linked list
+        @param value: can be Node object or int/str/etc.
         """
         if not self.head:
-            self.head = Node(value)
+            if isinstance(value, Node):
+                self.head = value
+            else:
+                self.head = Node(value)
         else:
             temp = self.head
             while temp.next:
                 # we will need to loop thru all nodes to reach the tail
                 temp = temp.next
-            temp.next = Node(value)
+            if isinstance(value, Node):
+                temp.next = value
+            else:
+                temp.next = Node(value)
 
     def delete(self, value):
         """
