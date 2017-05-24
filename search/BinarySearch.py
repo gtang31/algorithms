@@ -28,8 +28,9 @@ def binary_search(array, T):
     else:
         return binary_search(right_half, T)
 
+
 # Test cases
-assert binary_search([1,2,3,4,5], 6) == False
-assert binary_search([1,2,3,4,5], 4) == True
-assert binary_search([], 99) == False
-assert binary_search([1,1,3,4,5,5], 5) == True
+assert binary_search([1, 2, 3, 4, 5], 6) is False
+assert binary_search([1, 2, 3, 4, 5], 4) is True
+assert binary_search([], 99) is False
+assert binary_search([1, 1, 3, 4, 5, 5], 5) is True

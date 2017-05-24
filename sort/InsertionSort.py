@@ -15,8 +15,8 @@ def insert_sort(unordered_list):
         while ptr - 1 >= 0:
             if unordered_list[ptr] < unordered_list[ptr - 1]:
                 # swap element into correct position
-                unordered_list[ptr], unordered_list[ptr - 1] = unordered_list[ptr - 1], unordered_list[ptr]            
-            ptr -= 1  # decrement pointer position 
+                unordered_list[ptr], unordered_list[ptr - 1] = unordered_list[ptr - 1], unordered_list[ptr]
+            ptr -= 1  # decrement pointer position
 
     return unordered_list  # return ordered list
 
