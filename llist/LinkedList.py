@@ -8,7 +8,7 @@ Pros:
 - Linked list have dynamic sizes.
 Cons:
 - Linked lists take up more space due to nodes storing pointers to next element
-- No random access. Must traverse each node sequentially to find a specific value
+- No random access. Must traverse each node sequentially to find specific value
 """
 
 
@@ -27,12 +27,14 @@ class LinkedList(object):
     Linear data structure consisting of Node object(s)
     """
     def __init__(self):
-        # TODO: include a tail pointer maybe?
         self.head = None
+        self.tail = self.head
 
     def append(self, value):
         """
-        Appends a new node the end of the linked list
+        Appends a new node the end of the linked list by setting it equal
+        to the tail node.
+        Time complexity is O(1)
         @param value: can be Node object or int/str/etc.
         """
         if not self.head:
@@ -40,28 +42,32 @@ class LinkedList(object):
                 self.head = value
             else:
                 self.head = Node(value)
+            self.tail = self.head
         else:
-            temp = self.head
-            while temp.next:
-                # we will need to loop thru all nodes to reach the tail
-                temp = temp.next
             if isinstance(value, Node):
-                temp.next = value
+                self.tail.next = value
             else:
-                temp.next = Node(value)
+                self.tail.next = Node(value)
+            self.tail = self.tail.next
 
     def delete(self, value):
         """
-        delete first node occurence containing given specified value
+        delete first node occurence containing given specified value.
+        Worst-case time complexity is O(n)
         """
         node = self.head
         if node:
             if node.value == value:
+                # handle case when we are deleting head node
                 self.head = node.next
                 return
         while node.next is not None:
             prev = node
             if node.next.value == value:
+                if node.next is self.tail:
+                    # make sure we update the tail node
+                    self.tail = node
+                # delete node
                 prev.next = node.next.next
                 return
             else:
@@ -70,13 +76,19 @@ class LinkedList(object):
 
     def pprint(self):
         """
-        pretty prints a linked list vertically on STD
+        pretty prints the linked list vertically on STD
         """
         node = self.head
         while node:
-            print('+--|--+')
+            if node is self.head:
+                print('+--|--+{}'.format('HEAD'))
+            else:
+                print('+--|--+')
             print('|{:05}|'.format(node.value))
-            print('+--|--+')
+            if node is self.tail:
+                print('+--|--+{}'.format('TAIL'))
+            else:
+                print('+--|--+')
             print('   o   ')
             node = node.next
         else:
