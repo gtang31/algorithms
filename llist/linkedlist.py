@@ -7,8 +7,8 @@ Pros:
 - Linked list have easy insertion/deletion.
 - Linked list have dynamic sizes.
 Cons:
-- Linked lists take up more space due to nodes storing pointers to next element
-- No random access. Must traverse each node sequentially to find specific value
+- Linked lists take up more space due to nodes storing pointers to next element.
+- No random access. Must traverse each node sequentially to find specific value.
 """
 
 
