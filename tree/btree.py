@@ -8,7 +8,9 @@ __author__ = 'Gary Tang'
 
 
 class Node(object):
-
+    """
+    Binary tree nodes contains only left and right childrens
+    """
     def __init__(self, val):
         self.value = val
         self.left = None
@@ -38,12 +40,11 @@ class BinaryTree(object):
             # populate left child and enqueue it
             node.left = Node(ll.head.value)
             _q.enqueue(node.left)
-            ll.head = ll.head.next
             if ll.head:
                 # populate right child
                 node.right = Node(ll.head.value)
                 _q.enqueue(node.right)
-                ll.head = ll.head.next
+            ll.head = ll.head.next
 
     def traverse(self):
         """
