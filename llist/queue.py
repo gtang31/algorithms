@@ -7,7 +7,7 @@ structure that supports the following operation/methods:
 - is_empty
 This script implements a stack using a singly linked list.
 """
-from linkedlist import LinkedList
+from llist.linkedlist import LinkedList
 __author__ = "Gary Tang"
 
 
@@ -17,13 +17,16 @@ class Queue(object):
     implementation we will only use LinkedList methods and we add to the head
     node and remove from the tail node.
     """
-    def __init__(self):
+    def __init__(self, from_list=[]):
         self._queue = LinkedList()
         self._size = 0
+        for i in from_list:
+            self.enqueue(i)
 
     def enqueue(self, val):
         """
         add item to the back of the queue
+        @para val: any object
         """
         self._size += 1
         self._queue.append(val)
@@ -37,7 +40,7 @@ class Queue(object):
         self._size -= 1
         node = self._queue.head
         self._queue.head = self._queue.head.next
-        return node
+        return node.value
 
     def is_empty(self):
         return self._queue.head is None
