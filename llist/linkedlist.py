@@ -24,11 +24,17 @@ class Node(object):
 
 class LinkedList(object):
     """
-    Linear data structure consisting of Node object(s)
+    Linear data structure consisting of Node object(s). This is a singly linked
+    list where each node in the list only points to the next node
     """
-    def __init__(self):
-        self.head = None
-        self.tail = self.head
+    def __init__(self, from_list=[]):
+        self.head = self.tail = None
+        if from_list:
+            # construct linked list from an array (list)
+            self.tail = self.head = Node(from_list[0])
+            for i in xrange(1, len(from_list)):
+                self.tail.next = Node(from_list[i])
+                self.tail = self.tail.next
 
     def append(self, value):
         """
