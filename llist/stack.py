@@ -7,7 +7,7 @@ structure that supports the following operation/methods:
 - is_empty
 This script implements a stack using a singly linked list.
 """
-from linkedlist import LinkedList, Node
+from llist.linkedlist import LinkedList, Node
 __author__ = "Gary Tang"
 
 
