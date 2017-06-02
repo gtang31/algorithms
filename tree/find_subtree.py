@@ -8,6 +8,8 @@ __author__ = 'Gary Tang'
 
 def is_subtree(p, q):
     """
+    For each node visited, check whether its descendents contain the subtree.
+    O(P*Q) time complexity
     @param p. Root of P
     @param q: Root of Q
     @return bool
