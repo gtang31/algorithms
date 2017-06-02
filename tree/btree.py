@@ -1,6 +1,6 @@
 """
-Implementation of a binary tree. The binary tree is constructed using BFS to
-populate each node from an input list
+Implementation of a binary tree. The binary tree is constructed using
+BFS to populate each node from an input list
 """
 from llist.linkedlist import LinkedList
 from llist.queue import Queue
@@ -38,32 +38,45 @@ class BinaryTree(object):
         while ll.head:
             node = _q.dequeue()
             # populate left child and enqueue it
-            node.left = Node(ll.head.value)
-            _q.enqueue(node.left)
+            if ll.head.value is None:
+                node.left = None
+            else:
+                node.left = Node(ll.head.value)
+                _q.enqueue(node.left)
             ll.head = ll.head.next
             if ll.head:
                 # populate right child
-                node.right = Node(ll.head.value)
-                _q.enqueue(node.right)
+                if ll.head.value is None:
+                    node.right = None
+                else:
+                    node.right = Node(ll.head.value)
+                    _q.enqueue(node.right)
                 ll.head = ll.head.next
 
     def traverse(self):
         """
         this method is mostly used to verify that the binary tree was
-        constructed properly. Uses pre-order traversal to print the tree
+        constructed properly. Uses in-order traversal to print the tree
         """
-        def pre_order(root):
+        traversal = []
+
+        def in_order(root):
             if not root:
                 return None
-            print root.value
-            pre_order(root.left)
-            pre_order(root.right)
-        return pre_order(self.root)
+            in_order(root.left)
+            traversal.append(root.value)
+            in_order(root.right)
+        in_order(self.root)
+        return traversal
 
 
-class BST(object):
+class BinarySearchTree(object):
     """
-    Binary search tree
+    Binary search tree is essentially a binary tree where a node's left
+    descendents all have smaller value and right descendents are larger value.
     """
     def __init__(self, from_list=[]):
+        """
+        We need to sort the linked list first before we can construct the BST
+        """
         pass
