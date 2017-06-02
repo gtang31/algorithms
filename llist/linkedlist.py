@@ -85,19 +85,18 @@ class LinkedList(object):
         pretty prints the linked list vertically on STD
         """
         node = self.head
+        ll = ''
         while node:
             if node is self.head:
-                print('+--|--+{}'.format('HEAD'))
+                ll += '+--|--+{}\n'.format('HEAD')
             else:
-                print('+--|--+')
-            print('|{:05}|'.format(node.value))
+                ll += '+--|--+\n'
+            ll += '|{:05}|\n'.format(node.value)
             if node is self.tail:
-                print('+--|--+{}'.format('TAIL'))
-            else:
-                print('+--|--+')
-            print('   o   ')
+                ll += '+-----+{}\n'.format('TAIL')
             node = node.next
         else:
-            print('+--|--+')
-            print('|  X  |')
-            print('+-----+')
+            ll += '+--|--+\n'
+            ll += '|  X  |\n'
+            ll += '+-----+'
+        print(ll)
