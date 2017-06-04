@@ -61,22 +61,10 @@ class BinaryTree(object):
         traversal = []
 
         def in_order(root):
-            if not root:
+            if root is None:
                 return None
             in_order(root.left)
             traversal.append(root.value)
             in_order(root.right)
         in_order(self.root)
         return traversal
-
-
-class BinarySearchTree(object):
-    """
-    Binary search tree is essentially a binary tree where a node's left
-    descendents all have smaller value and right descendents are larger value.
-    """
-    def __init__(self, from_list=[]):
-        """
-        We need to sort the linked list first before we can construct the BST
-        """
-        pass
