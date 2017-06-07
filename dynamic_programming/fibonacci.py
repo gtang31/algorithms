@@ -6,7 +6,7 @@ python -mtimeit -s'from fibonacci import FibonacciSolution' 'FibonacciSolution()
 python -mtimeit -s'from fibonacci import FibonacciSolution' 'FibonacciSolution().top_down(100)'
 python -mtimeit -s'from fibonacci import FibonacciSolution' 'FibonacciSolution().bottom_up(100)'
 """
-import pdb
+__author__ = 'Gary Tang'
 
 
 class FibonacciSolution(object):
@@ -49,7 +49,8 @@ class FibonacciSolution(object):
         same as top-down approach, but reversed. We build the solution starting
         from the base case and work our way up
         """
-        cache = {0: 0, 1: 1}
-        for i in xrange(2, n+1):
-            cache[i] = cache[i-1] + cache[i-2]
-        return cache[i]
+        n_0, n_1 = 1, 1
+        for i in xrange(2, n):
+            result = n_0 + n_1
+            n_0, n_1 = n_1, result
+        return n_1
