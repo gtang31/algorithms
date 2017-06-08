@@ -94,14 +94,14 @@ class CountPaths(object):
 if __name__ == "__main__":
     # construct a random grid size
     rows = randint(2, 20)
-    cols = randint(2, 18)
+    cols = randint(2, 12)
     grid = []
     for i in xrange(rows):
         grid.append(['o']*cols)
 
     # populate grid with start/target/obstacles
     grid[0][0], grid[rows-1][cols-1] = 's', 't'
-    for i in xrange(randint(0, rows*cols-2)):
+    for i in xrange(randint(0, (rows*cols-2)/2)):
         r, c = randint(0, rows-1), randint(0, cols-1)
         if (r == 0 and c == 0) or (r == rows-1 and c == cols-1):
             continue
