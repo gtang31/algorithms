@@ -10,13 +10,13 @@ select x.EmployeeId, x.BossId, x.Salary, x.Name, y.Name from Employees x join Em
 select x.Name, y.Name, max(x.Salary) from Employees x join Departments y on x.DepartmentId = y.DepartmentId group by y.Name order by x.EmployeeId;
 
 --List departments that have less than 3 people in it
-select x.Name, y.Name, count(*) from Employees x join Departments y on x.DepartmentId = y.DepartmentId group by y.Name having count(*) < 3;
+select y.Name, count(x.Name) from Departments y left join Employees x on x.DepartmentId = y.DepartmentId group by y.Name having count(x.Name) < 3;
 
 --List all departments along with the number of people there (tricky - people often do an "inner join" leaving out empty departments)
-select y.Name, count(x.Name) from Employees x join Departments y on x.DepartmentId = y.DepartmentId group by y.Name;
+select y.Name, count(x.Name) from Departments y left join Employees x on x.DepartmentId = y.DepartmentId group by y.Name;
 
 --List employees that don't have a boss in the same department
 select x.Name, z.Name, y.Name from Employees x join Employees y on x.BossId = y.EmployeeId join Departments z on x.DepartmentId = z.DepartmentId where x.DepartmentId != y.DepartmentId;
 
 --List all departments along with the total salary there
-select x.Name, x.Salary, y.Name, sum(x.Salary) over (partition by x.Salary) from Employees x join Departments y on x.DepartmentId = y.DepartmentId;
+select x.DepartmentId, y.Name, sum(x.Salary) from Employees x join Departments y on x.DepartmentId = y.DepartmentId group by y.Name order by 1;
