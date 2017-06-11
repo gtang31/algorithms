@@ -5,7 +5,7 @@ cells are "off limits" such that the robot cannot step on them. Design an
 algorithm that calculates the number of different paths the robot can take to
 reach the end. To compare the time difference:
 
-python -mtimeit -s'from possible_paths import CountPaths' "grid = [['s', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+python -mtimeit -s'from dynamic_programming.possible_paths import CountPaths' "grid = [['s', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
         ['o', 'o', 'o', 'X', 'o', 'o', 'o', 'X', 'o'],
         ['o', 'o', 'o', 'o', 'o', 'X', 'o', 'o', 'o'],
         ['X', 'o', 'o', 'X', 'o', 'o', 'X', 'o', 'o'],
@@ -17,7 +17,7 @@ python -mtimeit -s'from possible_paths import CountPaths' "grid = [['s', 'o', 'o
         ['o', 'X', 'o', 'o', 'o', 'o', 'X', 'o', 'o'],
         ['o', 'X', 'o', 'o', 'o', 'o', 'X', 'o', 'o'],
         ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 't']]" 'CountPaths(grid).recursion()'
-python -mtimeit -s'from possible_paths import CountPaths' "grid = [['s', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+python -mtimeit -s'from dynamic_programming.possible_paths import CountPaths' "grid = [['s', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
         ['o', 'o', 'o', 'X', 'o', 'o', 'o', 'X', 'o'],
         ['o', 'o', 'o', 'o', 'o', 'X', 'o', 'o', 'o'],
         ['X', 'o', 'o', 'X', 'o', 'o', 'X', 'o', 'o'],

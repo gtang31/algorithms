@@ -2,9 +2,9 @@
 Construct fibonacci square. To see the different O(n) time complexity for each
 implemtation, run script as (including single quotes):
 
-python -mtimeit -s'from fibonacci import FibonacciSolution' 'FibonacciSolution().recursive(30)'
-python -mtimeit -s'from fibonacci import FibonacciSolution' 'FibonacciSolution().top_down(100)'
-python -mtimeit -s'from fibonacci import FibonacciSolution' 'FibonacciSolution().bottom_up(100)'
+python -mtimeit -s'from dynamic_programming.fibonacci import FibonacciSolution' 'FibonacciSolution().recursive(30)'
+python -mtimeit -s'from dynamic_programming.fibonacci import FibonacciSolution' 'FibonacciSolution().top_down(100)'
+python -mtimeit -s'from dynamic_programming.fibonacci import FibonacciSolution' 'FibonacciSolution().bottom_up(100)'
 """
 __author__ = 'Gary Tang'
 
