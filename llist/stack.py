@@ -18,8 +18,8 @@ class Stack(object):
     only the head node this is due to how the linked list is implemented; since
     popping from the tail node would require O(n) time complexity
     """
-    def __init__(self):
-        self._stack = LinkedList()
+    def __init__(self, from_list=[]):
+        self._stack = LinkedList(from_list)
 
     def push(self, val):
         """
