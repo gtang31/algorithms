@@ -1,3 +1,5 @@
+-- Transpose a table
+
 select name,
   sum(case when color = 'Red' then value else 0 end) Red,
   sum(case when color = 'Green' then value else 0 end) Green,
