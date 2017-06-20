@@ -22,7 +22,7 @@ class Tree(object):
         need to add `None` in from_list to signify the end of a node's children
         when the number of children for a node is less than K.
         @param K: integer. Maximum number of children a node can have
-        @param from_list. List. List to construct tree from
+        @param from_list. List to construct tree from
         """
         ll = LinkedList(from_list)
         if not ll.head:
