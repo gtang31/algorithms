@@ -47,4 +47,4 @@ class Trie(Tree):
                 break
         else:
             return False
-        return self.startswith(prefix[1:], next_node) and True
+        return self.search(prefix[1:], next_node) and True
