@@ -34,7 +34,7 @@ class Tree(object):
             ll.head = ll.head.next
         while ll.head:
             node = _q.dequeue()
-            for i in xrange(K):
+            for i in range(K):
                 # iterate through llist for the next K nodes
                 if ll.head is None:
                     # tree is fully constructed
