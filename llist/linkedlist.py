@@ -32,7 +32,7 @@ class LinkedList(object):
         if from_list:
             # construct linked list from an array (list)
             self.tail = self.head = Node(from_list[0])
-            for i in xrange(1, len(from_list)):
+            for i in range(1, len(from_list)):
                 self.tail.next = Node(from_list[i])
                 self.tail = self.tail.next
 

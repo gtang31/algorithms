@@ -18,7 +18,7 @@ class PermutationSolution(object):
         char, r = s[0], set()
         perms = self.without_dupes(s[1:])
         for perm in perms:
-            for idx in xrange(len(perm)+1):
+            for idx in range(len(perm)+1):
                 # insert char into all locations for each permutation
                 r.add(perm[0:idx]+char+perm[idx:])
         return r

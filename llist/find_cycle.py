@@ -37,7 +37,7 @@ def has_cycle(head):
 
     # set new pointers
     new = kth = head
-    for i in xrange(k):
+    for i in range(k):
         kth = kth.next
 
     while new is not kth:

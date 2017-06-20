@@ -14,7 +14,7 @@ def max_subarray(arr):
     if not arr:
         return []
     max_sum = curr_sum = arr[0]
-    for idx in xrange(1, len(arr)):
+    for idx in range(1, len(arr)):
         if curr_sum + arr[idx] < arr[idx]:
             # start new continguous array at current idx
             curr_sum = arr[idx]

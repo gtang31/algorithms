@@ -50,7 +50,7 @@ class FibonacciSolution(object):
         from the base case and work our way up
         """
         n_0, n_1 = 1, 1
-        for i in xrange(2, n):
+        for i in range(2, n):
             result = n_0 + n_1
             n_0, n_1 = n_1, result
         return n_1

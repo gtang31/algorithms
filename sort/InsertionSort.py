@@ -10,7 +10,7 @@ def insert_sort(unordered_list):
     if not unordered_list:
         return []
 
-    for ptr in xrange(1, len(unordered_list)):
+    for ptr in range(1, len(unordered_list)):
 
         while ptr - 1 >= 0:
             if unordered_list[ptr] < unordered_list[ptr - 1]:

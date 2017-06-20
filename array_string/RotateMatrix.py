@@ -19,8 +19,8 @@ class rotateMatrixSolution(object):
         to swap the values in M. Run time is also O(n^2) but constant space.
         """
         layer = 0
-        for row in xrange(-(-self._N//2)):
-            for col in xrange(layer, self._N-layer-1):
+        for row in range(-(-self._N//2)):
+            for col in range(layer, self._N-layer-1):
                 # use in-place swapping, starting with corners and then rotate
                 # in clock-wise direction until we get to the center
                 self._M[row][col], self._M[col][self._N-1-row], self._M[self._N-1-layer][self._N-1-col], self._M[self._N-1-col][row] = \
@@ -35,9 +35,9 @@ class rotateMatrixSolution(object):
         solution will require O(n^2) run-time and additional space.
         """
         new_M = []
-        for col in xrange(self._N):
+        for col in range(self._N):
             temp = []  # row in new matrix
-            for row in xrange(self._N-1, -1, -1):
+            for row in range(self._N-1, -1, -1):
                 # starting from bottom row of M
                 temp.append(self._M[row][col])
             new_M.append(temp)

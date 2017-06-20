@@ -47,7 +47,7 @@ def merge_sort(unordered_list):
         return []
 
     temp = [0]*len(unordered_list)
-    for i in xrange(len(unordered_list)):  # make each element into a list
+    for i in range(len(unordered_list)):  # make each element into a list
         temp[i] = [unordered_list[i]]
 
     # recombine fragmented parts into one sorted list
