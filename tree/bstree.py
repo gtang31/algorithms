@@ -3,6 +3,7 @@ Implementation of a binary search tree. The binary search tree is constructed
 from a sorted linked list
 """
 from llist.linkedlist import LinkedList
+from llist.ll_sort import merge_sort
 from tree.btree import Node
 __author__ = 'Gary Tang'
 
@@ -17,6 +18,7 @@ class BinarySearchTree(object):
         We need to sort the linked list first before we can construct the BST
         """
         ll = LinkedList(from_list)
+        ll = LinkedList(merge_sort(ll.head))
         self.root = self._construct_bst(ll.head)
 
     def _construct_bst(self, root):
@@ -59,7 +61,7 @@ class BinarySearchTree(object):
 
 
 # test cases
-bst = BinarySearchTree([1, 2, 3, 4, 5, 6, 7])
+bst = BinarySearchTree([1, 2, 3, 7, 5, 6, 4])
 assert bst.traverse() == [1, 2, 3, 4, 5, 6, 7]
 
 bst = BinarySearchTree([1, 2, 3, 4])
