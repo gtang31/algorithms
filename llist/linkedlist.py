@@ -28,9 +28,18 @@ class LinkedList(object):
     list where each node in the list only points to the next node
     """
     def __init__(self, from_list=[]):
-        self.head = self.tail = None
-        if from_list:
-            # construct linked list from an array (list)
+        self.head = self.tail = None  # init
+
+        if isinstance(from_list, Node):
+            # create a linked list from a Node object
+            self.head = self.tail = from_list
+            from_list = from_list.next
+            while from_list is not None:
+                self.tail = from_list
+                from_list = from_list.next
+
+        elif isinstance(from_list, list) and from_list:
+            # construct linked list from an array (list) object
             self.tail = self.head = Node(from_list[0])
             for i in range(1, len(from_list)):
                 self.tail.next = Node(from_list[i])
