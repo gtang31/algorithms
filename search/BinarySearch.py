@@ -19,7 +19,7 @@ def binary_search(array, T):
         return array[0] == T
 
     # calculate midde index and the left/right halves of array
-    mid_idx = len(array)/2
+    mid_idx = int(len(array)/2)
     left_half = array[:mid_idx]
     right_half = array[mid_idx:]
 
