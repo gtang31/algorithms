@@ -22,8 +22,7 @@ def max_subarray(arr):
             # append to contiguous array
             curr_sum += arr[idx]
 
-        if max_sum < curr_sum:
-            max_sum = curr_sum
+        max_sum = max(max_sum, curr_sum)
     return max_sum
 
 assert(max_subarray([-2, -3, -4, -19, -2, -1, -11, -3]) == -1)
