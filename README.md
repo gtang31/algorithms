@@ -13,6 +13,8 @@ The intention of this repository is to help build and maintain my CS foundation.
 
 * Search: used for finding particular information in a specific data structure. This usually can be done by DFS (using a stack DS) or BFS (using a queue DS).
 
+* SQL: include some of the basic - advanced postgres sql queries.
+
 
 
 ### Data Structures
