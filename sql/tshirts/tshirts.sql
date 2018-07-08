@@ -16,4 +16,4 @@ from(
       union all
       select color, Eric value, 'Eric' name
       from tshirts) src
-group by name
+group by name;
