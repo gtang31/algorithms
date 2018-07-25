@@ -5,6 +5,7 @@ S = {a, b}, the possible subsets of S are [{}, {a}, {b}, {a,b}]
 S = {a, b, c}, the possible subsets of S are [{}, {a}, {b}, {c}, {a,b}, {a,c},
 {b,c}, {a,b,c}]
 """
+import pdb
 __author__ = 'Gary Tang'
 
 
@@ -16,26 +17,29 @@ def power_set(S):
     We also need to be careful when updating mutable objects so as to not
     overwrite the previous copies.
     @param S: set
-    @return memo: list of sets
+    @return memo: list of lists
     """
-    memo = []  # list of subsets
+    memo = []  # list of lists
 
     def recurse(S):
         if not S:
-            memo.append(set())
+            memo.append(list())
         else:
             ele = S.pop()
             recurse(S)
-            copy = list(memo)
-            for idx, ss in enumerate(copy):
-                copy[idx] = set(ss)
-                copy[idx].update(ele)
+            # pdb.set_trace()
+            copy = memo[:]
+            for i, ss in enumerate(copy):
+                # print(i, ss)
+                copy[i] = ss[:]  # create NEW copy of i-th element in `copy`
+                copy[i].append(ele)  # add letter back
             memo.extend(copy)
     recurse(S)
+    print(memo)
     return memo
 
 
 # test cases
-assert(power_set({'a'}) == [set(), {'a'}])
-assert(power_set({'a', 'b'}) == [set(), {'b'}, {'a'}, {'a', 'b'}])
-assert(power_set({'a', 'b', 'c'}) == [set(), {'b'}, {'c'}, {'b', 'c'}, {'a'}, {'a', 'b'}, {'a', 'c'}, {'a', 'b', 'c'}])
+assert(power_set(['a']) == [[], ['a']])
+assert(power_set(['a', 'b']) == [[], ['a'], ['b'], ['a','b']])
+assert(power_set(['a', 'b', 'c']) == [[], ['a'], ['b'], ['a','b'], ['c'], ['a','c'], ['b','c'], ['a','b','c']])
