@@ -27,13 +27,13 @@ def power_set(S):
         else:
             ele = S.pop()
             recurse(S)
+            copy = memo[:]  # make a copy, do not alter existing elements in memo
             # pdb.set_trace()
-            copy = memo[:]
             for i, ss in enumerate(copy):
                 # print(i, ss)
                 copy[i] = ss[:]  # create NEW copy of i-th element in `copy`
                 copy[i].append(ele)  # add letter back
-            memo.extend(copy)
+            memo.extend(copy)  # add modified elements back into memeo
     recurse(S)
     print(memo)
     return memo
