@@ -2,7 +2,7 @@
 Find depth of a binary tree. We implement the solution using recursion. We can
 achieve the same solution using iteration.
 """
-from tree.btree import BinaryTree
+from tree.binarytree import BinaryTree
 __author__ = 'Gary Tang'
 
 

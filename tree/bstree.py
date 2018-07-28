@@ -4,7 +4,7 @@ from a sorted linked list
 """
 from llist.linkedlist import LinkedList
 from llist.ll_sort import merge_sort
-from tree.btree import Node
+from tree.binarytree import Node
 __author__ = 'Gary Tang'
 
 
@@ -42,36 +42,3 @@ class BinarySearchTree(object):
         head.left = self._construct_bst(root)
         head.right = self._construct_bst(right)
         return head
-
-    def traverse(self):
-        """
-        this method is mostly used to verify that the binary tree was
-        constructed properly. Uses in-order traversal to print the tree
-        """
-        traversal = []
-
-        def in_order(root):
-            if root is None:
-                return None
-            in_order(root.left)
-            traversal.append(root.value)
-            in_order(root.right)
-        in_order(self.root)
-        return traversal
-
-
-# test cases
-bst = BinarySearchTree([1, 2, 3, 7, 5, 6, 4])
-assert bst.traverse() == [1, 2, 3, 4, 5, 6, 7]
-
-bst = BinarySearchTree([1, 2, 3, 4])
-assert bst.traverse() == [1, 2, 3, 4]
-
-bst = BinarySearchTree([1])
-assert bst.traverse() == [1]
-
-bst = BinarySearchTree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13])
-assert bst.traverse() == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-
-bst = BinarySearchTree([])
-assert bst.traverse() == []

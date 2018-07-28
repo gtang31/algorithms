@@ -53,18 +53,3 @@ class BinaryTree(object):
                     _q.enqueue(node.right)
                 ll.head = ll.head.next
 
-    def traverse(self):
-        """
-        this method is mostly used to verify that the binary tree was
-        constructed properly. Uses in-order traversal to print the tree
-        """
-        traversal = []
-
-        def in_order(root):
-            if root is None:
-                return None
-            in_order(root.left)
-            traversal.append(root.value)
-            in_order(root.right)
-        in_order(self.root)
-        return traversal

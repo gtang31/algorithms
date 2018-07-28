@@ -2,7 +2,7 @@
 Given two binary trees, P and Q, find whether Q is a subtree of P. We will need
 to check for the existence of subtree Q for every node we visit in P.
 """
-from tree.btree import BinaryTree
+from tree.binarytree import BinaryTree
 __author__ = 'Gary Tang'
 
 

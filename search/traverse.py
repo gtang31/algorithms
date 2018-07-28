@@ -1,4 +1,8 @@
 """
+Prints a list of keys that represents the order in which each node was visited
+in a tree. '#' represents an empty node. If a list[list[int]] is returned, this
+is highlight the number of nodes at a particular level.
+
 Implementation of different traversal methods:
 1.) Pre-Order
 2.) In-Order
@@ -6,8 +10,8 @@ Implementation of different traversal methods:
 4.) ZigZag
 """
 from queue import Queue
-from tree.btree import Node as TreeNode
-from tree.btree import BinaryTree
+from tree.binarytree import BinaryTree, Node as TreeNode
+from tree.bstree import BinarySearchTree
 __author__ = 'Gary Tang'
 
 
@@ -118,6 +122,18 @@ class Traversal(object):
         return traversal
 
 
+# test cases
+bst = BinarySearchTree([4, 8, 1, 2, 5, 6, 0])
+assert(Traversal().level_order(bst.root) == [[4], [1, 6], [0, 2, 5, 8]])
+
+bst = BinarySearchTree([4, 8, 1, 2, 5, 6, 0])
+assert(Traversal().in_order(bst.root) == [0, 1, 2, 4, 5, 6, 8])
+
+bst = BinarySearchTree([])
+assert(Traversal().level_order(bst.root) == [])
+
+t = BinaryTree([1, 2, 3, 4, 5])
+assert(Traversal().in_order(t.root) == [4, 2, 5, 1, 3])
 
 t = BinaryTree([3, 9, 20, None, None, 15, 7])
 assert(Traversal().zig_zag(t.root) == [[3],[20,9],[15,7]])
