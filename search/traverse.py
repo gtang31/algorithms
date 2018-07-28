@@ -12,6 +12,7 @@ Implementation of different traversal methods:
 from queue import Queue
 from tree.binarytree import BinaryTree, Node as TreeNode
 from tree.bstree import BinarySearchTree
+from tree.heap import Heap
 __author__ = 'Gary Tang'
 
 
@@ -123,6 +124,7 @@ class Traversal(object):
 
 
 # test cases
+# BST
 bst = BinarySearchTree([4, 8, 1, 2, 5, 6, 0])
 assert(Traversal().level_order(bst.root) == [[4], [1, 6], [0, 2, 5, 8]])
 
@@ -132,6 +134,7 @@ assert(Traversal().in_order(bst.root) == [0, 1, 2, 4, 5, 6, 8])
 bst = BinarySearchTree([])
 assert(Traversal().level_order(bst.root) == [])
 
+# Binary Trees
 t = BinaryTree([1, 2, 3, 4, 5])
 assert(Traversal().in_order(t.root) == [4, 2, 5, 1, 3])
 
@@ -152,3 +155,33 @@ assert(Traversal().post_order(t.root) == [4, 5, 2, 3, 1])
 
 t = BinaryTree([1, 2, 3, 4, 5, 6, None, None, 7, 8])
 assert(Traversal().level_order(t.root) == [[1], [2, 3], [4, 5 ,6], [7, 8]])
+
+# Heaps
+min_heap = Heap([5,3,6,7,1,9])
+t = BinaryTree(min_heap._heap_list[1:])
+assert(Traversal().level_order(t.root) == [[1], [3, 6], [7, 5, 9]])
+
+min_heap.insert(4)
+t = BinaryTree(min_heap._heap_list[1:])
+assert(Traversal().level_order(t.root) == [[1], [3, 4], [7, 5, 9, 6]])
+
+assert(min_heap.extract() == 1)
+t = BinaryTree(min_heap._heap_list[1:])
+assert(Traversal().level_order(t.root) == [[3], [5, 4], [7, 6, 9]])
+
+max_heap = Heap([5,3,6,7,1,9], 'max')
+t = BinaryTree(max_heap._heap_list[1:])
+assert(Traversal().level_order(t.root) == [[9], [6, 7], [3, 1, 5]])
+
+max_heap.insert(4)
+t = BinaryTree(max_heap._heap_list[1:])
+assert(Traversal().level_order(t.root) == [[9], [6, 7], [3, 1, 5, 4]])
+
+assert(max_heap.extract() == 9)
+t = BinaryTree(max_heap._heap_list[1:])
+assert(Traversal().level_order(t.root) == [[7], [6, 5], [3, 1, 4]])
+
+assert(max_heap.extract() == 7)
+assert(max_heap.extract() == 6)
+t = BinaryTree(max_heap._heap_list[1:])
+assert(Traversal().level_order(t.root) == [[5], [4, 1], [3]])
