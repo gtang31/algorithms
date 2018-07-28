@@ -3,14 +3,15 @@ Implement the Trie data structure. A Trie is essentially a special-case of the
 tree data structure, where each node in the trie contains 26 child, one for
 each letter in the alphabet
 """
-from tree.tree import Tree, Node
+from tree.btree import BTree, Node
 __author__ = 'Gary Tang'
 
 
 class Trie(Tree):
 
     def __init__(self):
-        super(Trie, self).__init__(K=26, from_list=['ROOT'])
+        # in databases, K should be a multiple of the hardware page size
+        super(Trie, self).__init__(K=32, from_list=['ROOT'])
 
     def insert(self, word, node=None):
         """

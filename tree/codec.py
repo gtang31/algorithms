@@ -6,10 +6,9 @@ of software. For example, visualizing the tree in D3.js
 NOTE: trees will be populated with children top-down, left-to-right
 """
 import json
-from llist.linkedlist import LinkedList, Node as LLNode
-from tree.tree import Tree, Node as TNode
+from tree.btree import BTree, Node as TNode
 from tree.trie import Trie
-from tree.btree import BinaryTree, Node as BTNode
+from tree.binarytree import BinaryTree, Node as BTNode
 from tree.bstree import BinarySearchTree
 __author__ = 'Gary Tang'
 

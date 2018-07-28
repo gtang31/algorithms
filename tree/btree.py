@@ -14,7 +14,7 @@ class Node(object):
         self.children = []
 
 
-class Tree(object):
+class BTree(object):
 
     def __init__(self, K, from_list=[]):
         """
