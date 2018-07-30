@@ -3,8 +3,8 @@ Implementation of min/max heap. A heap is essentially a binary tree where the ro
 node is either the min/max value in the tree. Heaps are usually used for priority
 queues where access to min/max is O(1)
 """
-import pdb
 from tree.binarytree import BinaryTree
+__author__ = 'Gary Tang'
 
 
 class Heap():
@@ -102,3 +102,4 @@ class Heap():
                     return parent_idx*2
                 else:
                     return parent_idx*2+1
+
