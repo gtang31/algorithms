@@ -26,7 +26,7 @@ class Solution:
             else:
                 visited.add(cell)
 
-                # visit neighbor cells to and check whether it is surrounded
+                # visit neighbor cells and check whether it is surrounded
                 if dfs((r+1, c)) and dfs((r, c+1)) and dfs((r-1, c)) and dfs((r, c-1)):
                     grid[r][c] = 'X'
                     return True
