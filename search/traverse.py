@@ -8,6 +8,7 @@ Implementation of different traversal methods:
 2.) In-Order
 3.) Post-Order
 4.) ZigZag
+5.) Level-Order
 """
 from llist.queue import Queue
 from tree.binarytree import BinaryTree, Node as TreeNode
