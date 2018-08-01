@@ -4,6 +4,7 @@ which minimizes the sum of all numbers along its path.
 
 Assume 0 <= self.grid[i][j] < 10
 
+To measure performance, use:
 python -mtimeit -s'from dynamic_programming.smallest_path_sum import MinPathSum' 'MinPathSum(70, 70).recursive()'
 python -mtimeit -s'from dynamic_programming.smallest_path_sum import MinPathSum' 'MinPathSum(70, 70).dp()'
 """
