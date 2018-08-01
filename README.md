@@ -7,13 +7,17 @@ The intention of this repository is to help build and maintain my CS foundation.
 
 ### Algorithms
 
-1. Backtracking: used for finding ALL solutions to a problem. This is usually used to solve any permutation or combination problems.
+1.) Array/Striing: anything involving iteration, two pointers inside a loop. Most commonly used in interviews.
 
-2. Dynamic Programming: used to solve optimization problems. Anything that asks for maximum, minimum, shortest, longest, etc can usually be solved with dynamic programming.
+2. Backtracking: used for finding __ALL__ solutions to a problem. This is usually used to solve any permutation or combination problems.
 
-3. Search: used for finding particular information in a specific data structure. This usually can be done by DFS (using a stack DS) or BFS (using a queue DS).
+3. Dynamic Programming: used to solve __OPTIMIZATION__ problems. Anything that asks for maximum, minimum, shortest, longest, etc can usually be solved with dynamic programming.
 
-4. SQL: include some of the basic - advanced postgres sql queries.
+4. Search: used for finding particular information in a specific data structure. This usually can be done by DFS (using a stack DS) or BFS (using a queue DS).
+
+5. Greedy: used for finding the __closest__ best solution at the time. May or may not be most optimal, usually locally optimized but no globally optimized. Consider Dijkstra's algorithm as an example to greedy.
+
+6. SQL: include some of the basic - advanced postgres sql queries.
     * __.db files__ are made with SQLite3 `.save` command
     * To open, use command: `.open /path/to/file/name.db`
     * Use `.read /path/to/schema/.sql` to initialize tables with default values
@@ -21,6 +25,14 @@ The intention of this repository is to help build and maintain my CS foundation.
 
 ### Data Structures
 
-1. LList: implementation of a singly linked lists and all the common procedures performed on this data structure. These procedures includes adding/removing from head/tail of list, deleting/inserting nodes, traversing the list, etc.
+1. Linked Lists: 
+   * Singly linked lists
+   * Stack
+   * Queue
 
-2. Trees: implementation of a binary + K-ary trees and all the common procedures.
+2. Trees:
+   * Heaps
+   * Binary
+   * Binary Search
+   * K-ary
+   * Trie
