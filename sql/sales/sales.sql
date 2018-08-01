@@ -44,3 +44,19 @@ select min(o.order_date)
     , max(o.order_date)
 from Orders as o
 where customer_id = 6;
+
+--g. Find the largest order amount for each salesperson and the associated order number, along with the customer to whom that order belongs to
+select s.id
+  , t.max_amount
+  , o.customer_id
+from Salesperson as s
+join (
+    select o.salesperson_id
+      , max(o.amount) as max_amount
+    from Orders as o
+    group by o.salesperson_id
+) as t
+  on s.id = t.salesperson_id
+join Orders as o
+  on o.salesperson_id = t.salesperson_id
+  and o.amount = t.max_amount;
