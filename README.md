@@ -21,6 +21,14 @@ The intention of this repository is to help build and maintain my CS foundation.
 
 ### Data Structures
 
-1. LList: implementation of a singly linked lists and all the common procedures performed on this data structure. These procedures includes adding/removing from head/tail of list, deleting/inserting nodes, traversing the list, etc.
+1. Linked Lists: 
+   * Singly linked lists
+   * Stack
+   * Queue
 
-2. Trees: implementation of a binary + K-ary trees and all the common procedures.
+2. Trees:
+   * Heaps
+   * Binary
+   * Binary Search
+   * K-ary
+   * Trie
