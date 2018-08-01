@@ -16,6 +16,7 @@ The intention of this repository is to help build and maintain my CS foundation.
 4. SQL: include some of the basic - advanced postgres sql queries.
     * __.db files__ are made with SQLite3 `.save` command
     * To open, use command: `.open /path/to/file/name.db`
+    * Use `.read /path/to/schema/.sql` to initialize tables with default values
 
 
 ### Data Structures
