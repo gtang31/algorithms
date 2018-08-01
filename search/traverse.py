@@ -9,7 +9,7 @@ Implementation of different traversal methods:
 3.) Post-Order
 4.) ZigZag
 """
-from queue import Queue
+from llist.queue import Queue
 from tree.binarytree import BinaryTree, Node as TreeNode
 from tree.bstree import BinarySearchTree
 from tree.heap import Heap
@@ -38,7 +38,7 @@ class Traversal(object):
                 # push left child node onto temp stack first
                 temp.append((node.left, level+1))
                 temp.append((node.right, level+1))
-            
+
             if not stack and temp:
                 stack = temp
                 output.append([node[0].value for node in temp if node[0] is not None])
@@ -109,17 +109,19 @@ class Traversal(object):
         traversal = []
         if not node:
             return traversal
-        q = Queue(-1)  # define infinite size
-        q.put((node, level))
-        while not q.empty():
-            node, level = q.get(block=False, timeout=0)
+        q = Queue()
+        q.enqueue((node, level))
+        while not q.is_empty():
+            node, level = q.dequeue()
             if node is not None:
+
+                # index in traversal list represents the level in the binary tree
                 if len(traversal)-1 < level:
                     traversal.append([node.value])
                 else:
                     traversal[level].append(node.value)
-                q.put((node.left, level+1))
-                q.put((node.right, level+1))
+                q.enqueue((node.left, level+1))
+                q.enqueue((node.right, level+1))
         return traversal
 
 
@@ -185,3 +187,4 @@ assert(max_heap.extract() == 7)
 assert(max_heap.extract() == 6)
 t = BinaryTree(max_heap._heap_list[1:])
 assert(Traversal().level_order(t.root) == [[5], [4, 1], [3]])
+
