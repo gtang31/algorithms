@@ -89,6 +89,20 @@ class LinkedList(object):
                 node = node.next
         return
 
+    def reverse(self):
+        """
+        reverse the order of nodes in the linked list
+        """
+        self.tail = self.head
+        prev = None
+        current = self.head
+        while current is not None:
+            temp = current.next
+            current.next = prev
+            prev = current
+            current = temp
+        self.head = prev
+
     def pprint(self):
         """
         pretty prints the linked list vertically on STD
