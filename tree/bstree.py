@@ -3,7 +3,7 @@ Implementation of a binary search tree. The binary search tree is constructed
 from a sorted linked list
 """
 from llist.linkedlist import LinkedList
-from llist.ll_sort import merge_sort
+from llist.merge_sort import merge_sort
 from tree.binarytree import Node
 __author__ = 'Gary Tang'
 
