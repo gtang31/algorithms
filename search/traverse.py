@@ -182,6 +182,7 @@ assert(Traversal().level_order(t.root) == [[9], [6, 7], [3, 1, 5, 4]])
 
 assert(max_heap.extract() == 9)
 t = BinaryTree(max_heap._heap_list[1:])
+# print(Traversal().level_order(t.root))
 assert(Traversal().level_order(t.root) == [[7], [6, 5], [3, 1, 4]])
 
 assert(max_heap.extract() == 7)
@@ -189,3 +190,7 @@ assert(max_heap.extract() == 6)
 t = BinaryTree(max_heap._heap_list[1:])
 assert(Traversal().level_order(t.root) == [[5], [4, 1], [3]])
 
+h=Heap([6,4,5])
+assert(h.extract() == 4)
+assert(h.extract() == 5)
+assert(h.extract() == 6)

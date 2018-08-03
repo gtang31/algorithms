@@ -1,9 +1,8 @@
 """
-Implementation of min/max heap. A heap is essentially a binary tree where the root
+Implementation of min/max heap from a List. A heap is essentially a binary tree where the root
 node is either the min/max value in the tree. Heaps are usually used for priority
 queues where access to min/max is O(1)
 """
-from tree.binarytree import BinaryTree
 __author__ = 'Gary Tang'
 
 
@@ -25,10 +24,9 @@ class Heap():
 
         self._construct(from_list)
 
-
     def _construct(self, from_list):
         """
-        Construct heap from a list. We can use some arithmetic to 
+        Construct heap from a list. We can use some arithmetic to
         """
         self._heap_list = [0]
         for idx, i in enumerate(from_list):
@@ -59,6 +57,7 @@ class Heap():
     def extract(self):
         """
         Remove root from heap. And then re-org heap integrity
+        @return: Int. Either smallest/largest of the heap.
         """
         # swap last element with root
         self._heap_list[1], self._heap_list[-1] = self._heap_list[-1], self._heap_list[1]
@@ -66,18 +65,14 @@ class Heap():
 
         idx = 1
         # bubble the new root down to its proper position in the heap
-        while idx < len(self._heap_list)-2:
-            if self._type == 'min':
-                child_idx = self._get_child(idx)
-                if self._heap_list[idx] > self._heap_list[child_idx]:
-                    self._heap_list[idx], self._heap_list[child_idx] = self._heap_list[child_idx], self._heap_list[idx]
-            elif self._type == 'max':
-                child_idx = self._get_child(idx)
-                if self._heap_list[idx] < self._heap_list[child_idx]:
-                    self._heap_list[idx], self._heap_list[child_idx] = self._heap_list[child_idx], self._heap_list[idx]
-            else:
+        while idx < len(self._heap_list)-1:  # -2 due to 0th element being a filler value
+            if idx*2 > len(self._heap_list):
                 return root
-            
+
+            child_idx = self._get_child(idx)
+            if (self._type == 'min' and self._heap_list[idx] >= self._heap_list[child_idx]) or (self._type == 'max' and self._heap_list[idx] <= self._heap_list[child_idx]):
+                    self._heap_list[idx], self._heap_list[child_idx] = self._heap_list[child_idx], self._heap_list[idx]
+
             idx = child_idx
 
         return root
