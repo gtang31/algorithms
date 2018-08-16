@@ -46,7 +46,7 @@ class Stack(object):
         check value of item at the top of the stack
         @return: value of tail node
         """
-        if not self._stack.head:
+        if self.is_empty():
             raise Exception('Stack is already empty.')
         return self._stack.head.value
 
