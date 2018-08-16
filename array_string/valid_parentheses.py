@@ -22,7 +22,7 @@ def is_valid(s):
                 # there are no matching open parentheses
                 return False
 
-            popped = stack.pop().value
+            popped = stack.pop()
             if (popped == '(' and char == ')') or (popped == '[' and char == ']') or (popped == '{' and char == '}'):
                 # opening and closing parenthese match up
                 continue
