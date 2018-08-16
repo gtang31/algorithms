@@ -39,7 +39,7 @@ class Stack(object):
             raise Exception('Stack is already empty.')
         node = self._stack.head
         self._stack.head = self._stack.head.next
-        return node
+        return node.value
 
     def peek(self):
         """
