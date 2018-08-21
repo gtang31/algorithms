@@ -50,11 +50,3 @@ class BTree(object):
                     _q.enqueue(child)
                     ll.head = ll.head.next
                     node.children.append(child)
-
-    def traverse(self):
-        def recurse(node):
-            """in-order traversal"""
-            print('Node: {node}, Children: {children}'.format(node=node.value, children=node.children))
-            for child in node.children:
-                recurse(child)
-        recurse(self.root)
