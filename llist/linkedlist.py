@@ -123,3 +123,24 @@ class LinkedList(object):
             ll += '|  X  |\n'
             ll += '+-----+'
         print(ll)
+
+
+def chain_nodes(_list):
+    """
+    this function is mostly used for testing
+    """
+    head = temp = Node(_list[0])
+    if len(_list) > 1:
+        for i in range(1, len(_list)):
+            temp.next = Node(_list[i])
+            temp = temp.next
+    return head
+
+def print_chain(node):
+    ret = []
+    while node:
+        ret.append(str(node.value))
+        node = node.next
+    print('->'.join(ret))
+
+
