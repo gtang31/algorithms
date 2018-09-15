@@ -21,6 +21,7 @@ The intention of this repository is to help build and maintain my CS foundation.
     * __.db files__ are made with SQLite3 `.save` command
     * To open, use command: `.open /path/to/file/name.db`
     * Use `.read /path/to/schema/.sql` to initialize tables with default values
+    * Include `.headers on` and `.mode column` commands for formatting output
 
 
 ### Data Structures
