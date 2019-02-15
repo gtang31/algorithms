@@ -61,6 +61,56 @@ order by 1;
 -- dense rank employees based on their salary
 select x.name
   , x.salary
-  , (select count(distinct salary)+1 from Employees where salary > x.salary) as dense_rank
+  , t.dense_rank
 from Employees as x
-order by dense_rank;
+left join (
+  -- count all t2.salary less than t1.salary
+  select t1.salary
+    , count(distinct t2.salary) as dense_rank
+  from Employees as t1
+  join Employees as t2
+    on t2.salary >= t1.salary
+  group by t1.salary
+) as t
+  on x.salary = t.salary
+order by t.dense_rank;
+
+-- find top three salaried employee for each department
+-- implement rank
+
+
+select t1.salary
+  , d.Name as DepartmentName
+  , count(distinct t2.salary)
+from Employees as t1
+join Employees as t2
+  on t2.salary >= t1.salary
+  and t1.DepartmentId = t2.DepartmentId
+join Departments as d
+  on d.Id = t1.DepartmentId
+group by t1.salary, d.Name
+order by DepartmentName, t1.salary;
+
+
+
+select d.Name as Department
+  , y.Employee
+  , y.Salary
+from (
+    select x.Name as Employee
+      , x.Salary
+      , x.DepartmentId
+      , rank as top_three
+    from (
+      select *
+      from Employees
+      order by DepartmentId
+        , Salary desc
+      ) as x
+    where c <= 3
+    order by x.DepartmentId, c
+) as y
+join Departments as d
+  on d.Id = y.DepartmentId
+;
+
