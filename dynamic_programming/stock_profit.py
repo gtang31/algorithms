@@ -17,15 +17,14 @@ def max_profit(prices):
     buy_price = prices[0]
     sell_price = prices[1]
     profit = sell_price - buy_price
-    for idx in range(1, len(prices)-1):
+    for day in range(1, len(prices)-1):
         # update sell price since we cannot sell stocks from a previous date
-        sell_price = prices[idx+1]
-        if prices[idx] < buy_price:
+        sell_price = prices[day+1]
+        if prices[day] < buy_price:
             # buy low.
-            buy_price = prices[idx]
-        if sell_price - buy_price > profit:
-            # sell high.
-            profit = sell_price - buy_price
+            buy_price = prices[day]
+        # sell high.
+        profit = max(sell_price-buy_price, profit)
 
     if profit < 0:
         return 0

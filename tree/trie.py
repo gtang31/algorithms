@@ -1,7 +1,7 @@
 """
 Implement the Trie data structure. A Trie is essentially a special-case of the
 tree data structure, where each node in the trie contains up to 26 children, one for
-each letter in the alphabet
+each letter in the alphabet. A word is complete if it is followed by an asterisk(*).
 """
 from tree.btree import BTree, Node
 __author__ = 'Gary Tang'
@@ -40,9 +40,14 @@ class Trie(object):
         self.insert(word[1:], next_node)
 
     def search(self, word, node=None):
+        """
+        check whether a string exists in the trie
+        @para word: String.
+        """
         if not word:
             for child in node.children:
                 if child.value == '*':
+                    # word exists
                     return True
             return False
 
@@ -51,12 +56,11 @@ class Trie(object):
 
         for child in node.children:
             if word[0] == child.value:
-                next_node = child
                 break
         else:
             return False
 
-        return self.search(word[1:], next_node)
+        return self.search(word[1:], child)
 
     def startswith(self, prefix, node=None):
         """
@@ -78,3 +82,19 @@ class Trie(object):
 
         return self.startswith(prefix[1:], next_node) and True
 
+
+if __name__ == '__main__':
+    # test cases.
+    trie = Trie()
+    trie.insert('alphabet')
+    trie.insert('alphanumeric')
+    trie.insert('alpha')
+    assert(trie.search('alphabet') == True)
+    assert(trie.search('alphanumeric') == True)
+    assert(trie.search('alpha') == True)
+    assert(trie.startswith('alph') == True)
+    assert(trie.startswith('beta') == False)
+    trie.insert('alpine')
+    assert(trie.search('alpine') == True)
+    assert(trie.startswith('alpine') == True)
+    assert(trie.search('alps') == False)

@@ -22,9 +22,9 @@ def lengthOfLongestSubstring(s):
             # of last-seen duplicate letter by 1
             start = seen[char]+1
         else:
-          # keep iterating through the string keep track
-          # of current longest substring
-          longest = max(longest, idx-start+1)
+            # keep iterating through the string keep track
+            # of current longest substring
+            longest = max(longest, idx-start+1)
         seen[char] = idx
     return longest
 
