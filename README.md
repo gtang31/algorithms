@@ -7,7 +7,7 @@ The intention of this repository is to help build and maintain my CS foundation.
 
 ### Algorithms
 
-1.) Array/Striing: anything involving iteration, two pointers inside a loop. Most commonly used in interviews.
+1. Array/Striing: anything involving iteration, two pointers inside a loop. Most commonly used in interviews.
 
 2. Backtracking: used for finding __ALL__ solutions to a problem. This is usually used to solve any permutation or combination problems.
 
